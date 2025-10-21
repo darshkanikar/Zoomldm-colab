@@ -49,7 +49,7 @@ if __name__ == "__main__":
     sys.path.append(os.getcwd())
 
     parser = get_parser()
-    parser = Trainer.add_argparse_args(parser)
+    
     opt, unknown = parser.parse_known_args()
 
     # === Colab GPU handling ===
@@ -138,7 +138,11 @@ if __name__ == "__main__":
             CUDACallback(),
         ]
 
-        trainer = Trainer.from_argparse_args(
+        trainer = pl.Trainer(
+            max_epochs=100,      # set manually
+            gpus=1,              # set manually
+            precision=16,        # set manually
+            callbacks=[...],
             trainer_opt,
             logger=trainer_logger,
             callbacks=callbacks,
