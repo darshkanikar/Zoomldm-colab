@@ -4,7 +4,6 @@ model:
   params:
     linear_start: 0.0015
     linear_end: 0.0195
-    log_every_t: 200
     timesteps: 1000
     first_stage_key: image
     cond_stage_key: hybrid
