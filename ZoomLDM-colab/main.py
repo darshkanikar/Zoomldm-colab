@@ -49,7 +49,9 @@ if __name__ == "__main__":
     sys.path.append(os.getcwd())
 
     parser = get_parser()
-    
+    parser.add_argument("--name", type=str, default="zoomldm_run", help="Name of the experiment")
+    parser.add_argument("--resume", type=str, default="", help="Path to resume checkpoint (optional)")
+
     opt, unknown = parser.parse_known_args()
 
     # === Colab GPU handling ===
