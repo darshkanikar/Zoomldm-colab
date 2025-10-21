@@ -139,13 +139,12 @@ if __name__ == "__main__":
         ]
 
         trainer = pl.Trainer(
-            max_epochs=100,      # set manually
-            gpus=1,              # set manually
-            precision=16,        # set manually
-            callbacks=[...],
-            trainer_opt,
-            logger=trainer_logger,
+            trainer_opt,               # positional first
+            max_epochs=100,
+            gpus=1,
+            precision=16,
             callbacks=callbacks,
+            logger=trainer_logger
         )
 
         # === Data ===
