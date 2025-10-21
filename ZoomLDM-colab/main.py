@@ -2,7 +2,7 @@
 
 import argparse, os, sys, datetime, glob, importlib, csv
 import numpy as np
-from args import get_parser
+from argparse
 import time
 import torch
 import torchvision
@@ -37,7 +37,12 @@ os.makedirs("logs", exist_ok=True)
 
 # ... keep get_parser(), nondefault_trainer_args(), WrappedDataset, DataModuleFromConfig,
 # SetupCallback, ImageLogger, CUDACallback as in your original code ...
-
+def get_parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-t", "--train", action="store_true")
+    parser.add_argument("--gpu", type=int, default=0)
+    parser.add_argument("--base", type=str, required=True)
+    return parser
 
 if __name__ == "__main__":
     now = datetime.datetime.now().strftime("%m-%dT%H-%M")
